@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kathy Jo Pollack - Certified Life Coach, Speaker & Trainer</title>
+  <meta name="description" content="Kathy Jo Pollack is a certified life coach, motivational speaker, and trainer specializing in finance, relationships, etiquette, and confidence." />
+  <meta name="author" content="Kathy Jo Pollack" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #e07a5f;
+      --dark: #3d405b;
+      --light: #f4f1de;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--light);
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--dark);
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: var(--accent);
+      width: 0;
+      transition: width 0.3s;
+      margin-top: 0.3rem;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .hero {
+      position: relative;
+      width: 100%;
+      background: url('images/Your paragraph text (2).png') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    section {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    /* Headings Animation */
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      height: 3px;
+      width: 50px;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    h2:hover::after {
+      width: 100px;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .highlight {
+      background: white;
+      border-left: 5px solid var(--accent);
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Services Card Layout */
+    #services .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #services .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .testimonials {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      max-width: 100%;
+      white-space: normal; /* allow wrapping */
+    }
+    
+    .testimonial-card {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 400px; /* Limit how wide a testimonial can be */
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      scroll-snap-align: center;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      word-wrap: break-word; /* Break long words if needed */
+    }
+    
+    .testimonial-card:hover {
+      transform: scale(1.03);
+    }
+    
+
+    .certifications {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .certifications::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      background: linear-gradient(to right, transparent, var(--light));
+      z-index: 1;
+    }
+
+    .certification-wrapper {
+      display: flex;
+      animation: scrollCerts 30s linear infinite;
+      gap: 1rem;
+    }
+
+    @keyframes scrollCerts {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .certification-card {
+      height: 150px;
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .certification-card img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    #services p.highlight {
+      margin-top: 3rem;
+    }
+
+    #articles {
+      background: #f1e8d8;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark);
+      color: white;
+    }
+
+    a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kathy Jo Pollack</h1>
+    <p>Certified Life Coach | Motivational Speaker | Trainer</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services-fees.html">Services & Fees</a>
+    <a href="links.html">Resources</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+   
+  </section>
+
+  <section id="about">
+    <h2>Welcome</h2>
+    
+    <p>Welcome! As a board-certified and ICF credentialed life coach, as well as a certified confidence coach, I'm here to partner with you in achieving your goals and dreams. I'm also a professional trainer, speaker, and author with expertise in personal finance, relationships, etiquette AND overall enjoying the best possible life! I'll provide you with the essential tools that have led to my success and empower you to succeed as well!</p>
+  </section>
+
+  <section id="services" style="margin-bottom: 40px;">
+    <h2>What I Offer</h2>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+      <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 280px;">
+          <strong>Life Coaching</strong>
+          <p>Gain confidence and clarity to pursue your goals with purpose.</p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 280px;">
+          <strong>Financial Coaching</strong>
+          <p>Build and manage a realistic budget that brings financial peace.</p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 280px;">
+          <strong>Relationship Coaching</strong>
+          <p>Create and nurture the fulfilling relationships you deserve.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 2rem; justify-content: center;">
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 280px;">
+          <strong>Etiquette Coaching</strong>
+          <p>Polish your personal and professional image with modern etiquette.</p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 280px;">
+          <strong>Speaking & Training</strong>
+          <p>Engaging presentations and workshops tailored to your audience.</p>
+        </div>
+      </div>
+    </div>
+
+  <section id="certifications">
+    <h2>Certifications & Memberships</h2>
+    <div class="certifications">
+      <div class="certification-wrapper">
+        <div class="certification-card"><img src="images/BCC sm cropped.jpg" alt="BCC Certification"></div>
+        <div class="certification-card"><img src="images/PCClogo.png" alt="PCC Certification"></div>
+        <div class="certification-card"><img src="images/TAcertified.gif" alt="CTA Certification"></div>
+        <div class="certification-card"><img src="images/ICF-LOGO PIT.png" alt="ICF Logo"></div>
+        <div class="certification-card"><img src="images/DISC.png" alt="DISC Certification"></div>
+        <div class="certification-card"><img src="images/RCI_logo_certified_CRCS.jpg" alt="BCC Certification"></div>
+        <div class="certification-card"><img src="images/AC12.png" alt="PCC Certification"></div>
+        <div class="certification-card"><img src="images/colourworks logo. certified.png" alt="PCC Certification"></div>
+        <div class="certification-card"><img src="images/rcimemberlogo_small (1).jpg" alt="PCC Certification"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="articles">
+    <h2>Popular Articles</h2>
+    <ul>
+      <li><a href="https://www.linkedin.com/pulse/single-searching-finances-first-kathy-jo-pollack-ma-acc-bcc/">Single & Searching? Finances First</a></li>
+      <li><a href="https://www.linkedin.com/pulse/magical-slippers-kathy-jo-pollack-ma-acc/">Magical Slippers</a></li>
+      <li><a href="https://www.linkedin.com/pulse/life-lessons-from-sprained-ankle-kathy-jo-pollack-ma-acc">Life Lessons from a Sprained Ankle</a></li>
+      <li><a href="https://www.linkedin.com/pulse/life-lessons-from-fish-kathy-jo-pollack-ma-ctacc">Life Lessons from a Fish</a></li>
+      <li><a href="http://www.selfgrowth.com/articles/The_A_B_C_Ds_of_a_Healthy_Financial_Plan.html">ABCDs of a Healthy Financial Plan</a></li>
+    </ul>
+  </section>
+
+  <section id="testimonials">
+    <h2>Speaking & Seminars Testimonials</h2>
+    <div class="testimonials">
+      <div class="testimonial-card">
+        <p>""Kathy Jo has written articles for our monthly newsletter, sharing her insight and joy of life with members of our organization for quite a few years. She was our keynote speaker for our 119th Annual Meeting held on 5/1/15 at the Sheraton at Station Square here in Pittsburgh. Her presentation was smart and heartfelt, and provided knowledge and information that everyone could use. She is a person that you want to keep talking and listen to more of what she has to share. A true treasure!"."<br/><strong>- Harold Booth, President - Pennsylvania Association of Credit Management</strong></p>
+      </div>
+      <div class="testimonial-card">
+        <p>"Working with Kathy Jo has been wonderful! She presented numerous seminars over the last 5 years through our Benefits/Ceridian relationship. Whether it s a more challenging topic such as 'Silencing the Inner Critic,' or a lighter topic, 'Happiness,' she presents in a style that is easy to listen to and is very engaging! Her style of presenting allows participants to open up during difficult topics. I can t wait for her to return to our workplace!"<br/><strong>- Jennifer Rhoades, GlaxoSmithKline</strong></p>
+      </div>
+      <div class="testimonial-card">
+        <p>"Kathy Jo possesses all of the traits needed to be an excellent coach and speaker including kindness, sincerity, concern and empathy. Her ability to relate to people is a special gift and a powerful asset as a public speaker. The lunch time program that she provided on financial budgeting received only positive feedback from employees in the audience. I can offer only positive recommendations for Kathy Jo s professionalism and expertise as a personal coach and financial speaker."<br/><strong>- Roseann Martino, Mine Safety Appliances</strong></p>
+      </div>
+      <div class="testimonial-card">
+        <p>"Kathy Jo made a lunchtime presentation to our employees during one of our monthly lunch 'n learns on the subject of budgeting and financial fitness. She has a solid grasp of this topic and presents in an energetic and passionate way. Employees were asked to provide feedback after each session and to comment on past presenters, as well. Kathy Jo was consistently named as a favorite."<br/><strong>- Sharon Ricketts, Massaro Corporation</strong></p>
+      </div>
+      <div class="testimonial-card">
+        <p>"Kathy Jo has designed and conducted several training courses for me over the last two years. The majority of these courses were intended to teach employees how to conduct their financial lives in a successful and responsible manner, as well as how to fix past financial problems. I have never been disappointed in one of Kathy Jo's programs and would highly recommend her to anyone that is looking for a life coach or trainer."<br/><strong>- Will Beaumont, Mountaineer Casino Racetrack & Resort</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2>Client Testimonials</h2>
+    <div class="testimonials">
+      <div class="testimonial-card">
+        <p>"Since working with Kathy Jo over just 3 or 4 months, I have been able to see where my money was going, where I was 'leaking' money. In her calm coaching and inquiries, she helped me see what moves would be better for me financially. She helped me build a budget and not forget anything, so now I do not worry about 'surprises' popping up. Most importantly, she helped me build self confidence that I can manage my finances, make good decisions, pay debt, keep my small savings intact, and increase my credit score. It has been painless, educational, very helpful and enjoyable to work with Kathy Jo. I look forward to always having her as my personal 'support team'."<br/><strong>- Roberta P., West Virginia</strong></p>
+      </div>
+      <div class="testimonial-card">
+        <p>"I just spoke of you with a friend who complimented my new found attitude towards life . I shared that I work with a great Life Coach that fully supports me!!"<br/><strong>- Maria, Pennsylvania</strong></p>
+      </div>
+      <div class="testimonial-card">
+        <p>"Coach KJ helped me move from 'procrastinator' to 'achiever' in a very short time."<br/><strong>- Paul, Pennsylvania</strong></p>
+      </div>
+      <div class="testimonial-card">
+        <p>"If you want to get it done... work with Kathy Jo... Amazing results!"<br/><strong>- Katherine, North Carolina</strong></p>
+      </div>
+      <div class="testimonial-card">
+        <p>"After working with Kathy Jo, I am finally in control of my life - my checkbook balances, my savings is growing, and now I found my special someone."<br/><strong>- Sue, California</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>If you're ready to change your life, <a href="contact.html">reach out today</a> and let’s get started on your success journey.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2007–2025 Kathy Jo Pollack. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
